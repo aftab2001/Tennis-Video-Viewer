@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Match Viewer</title>
+        <title className='title'>Match Viewer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -99,6 +99,7 @@ export default function Home() {
               <div className="videoPlayer">
                 <VideoPlayer videoURL={matchData ? matchData.url : ''} videoRef={videoRef} />
               </div>
+              <div className="list">
 
               {/* Filter List */}
               <div className="filterList">
@@ -108,6 +109,7 @@ export default function Home() {
               {/* Points List */}
               <div className="pointsList">
               <PointsList pointsData={returnFilteredPoints()} onPointSelect={handleJumpToTime}/>
+              </div>
               </div>
             </div>
           </>
@@ -122,59 +124,81 @@ export default function Home() {
 
       <style jsx>{`
         main {
+          width:80vw;
           padding-top: 1rem;
           flex: 1;
           display: flex;
           flex-direction: column;
           align-items: center;
+          margin:10px 0px;
+          
+          
         }
-
+        .title{
+          color:#003B5C;
+        }
         .searchDropdown {
           margin-bottom: 1rem;
-          width: 80%;
+          min-width: 400px;
         }
 
         ${styles.mainContent} {
           display: flex;
           flex-direction: row;
-          width: 100%; // Take up the full width
-          justify-content: center;
-          align-items: flex-start;
+         // width: 80vw; // Take up the full width
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap:wrap;
+          gap:10vw;
         }
-
+        .list{
+          display:flex;
+          flex-direction:row;
+          width:27vw;
+          gap:2vw;
+          justify-content:flex-end;
+        }
         .videoPlayer {
-          flex: 2; // Takes up 2/3 of the space
+          flex-grow: 2; // Takes up 2/3 of the space
           padding: 1rem;
+          width:53vw;
+          outline:none;
+          border:none;
         }
 
-        .pointsList {
-          flex: 1; // Takes up 1/3 of the space
+        .pointsList,.filterList {
+          flex-grow: 1; // Takes up 1/3 of the space
           margin-top: 1rem;
-          padding: 1rem;
+          padding:10px;
           border: 1px solid #ddd;
           border-radius: 5px;
           overflow-y: auto;
           height: 400px;
+          // width:18%;
+          //gap:20px;
         }
 
-        .filterList {
-          flex: 1; // Takes up 1/3 of the space
-          margin-top: 1rem;
-          padding: 1rem;
-          border: 1px solid #ddd;
-          border-radius: 5px;
-          overflow-y: auto;
-          height: 400px;
-        }
+        
 
         footer {
+          background:#FFC72C;
           width: 100%;
+          font-weight:500;
           height: 70px;
-          border-top: 1px solid #eaeaea;
           display: flex;
           justify-content: center;
           align-items: center;
         }
+        // @media screen and (max-width:760px)
+        // {
+        //   .videoPlayer{
+        //     width:80vw;
+        //     overflow-y:auto;
+        //   }
+        //   ${styles.mainContent},main{
+        //     flex-direction:column;
+        //   }
+        // }
       `}</style>
 
 

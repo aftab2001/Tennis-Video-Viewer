@@ -30,16 +30,32 @@ const SearchDropdown = ({ setMatchData }) => {
             label: item.name
         }));
     };
-
+    const customStyles={
+        option:(provided, state) =>({
+            ...provided,
+            borderBottom:'1px solid #DAEBFE',
+            minWidth:'300px',
+            color:state.isSelected?"white":"black",
+            backgroundColor:"white",
+            backgroundColor:state.isSelected?"#005587":
+            "DAEBFE",
+            ':hover':{
+                backgroundColor:'#DAEBFE',
+                
+            }
+        })
+    }
     return (
-        <div>
+        <div >
             <Select
                 placeholder="Search for a tennis match..."
+                styles={customStyles}
                 value={searchTerm}
                 onChange={handleDropdownItemClick}
                 options={dropdownData}
                 className={styles.searchDropdown}
             />
+            
         </div>
     );
 }

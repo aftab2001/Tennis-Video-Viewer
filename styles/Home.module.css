@@ -1,6 +1,5 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
   padding-top: 50px; /* Adjust this value based on the height of your toolbar */
   display: flex;
   flex-direction: column;
@@ -9,7 +8,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: #003B5C;
   text-decoration: none;
 }
 
@@ -20,7 +19,7 @@
 }
 
 .title {
-  margin: 0 0 1rem;
+  margin-left: 5px;
   line-height: 1.15;
   font-size: 3.6rem;
 }

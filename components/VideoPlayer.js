@@ -1,23 +1,26 @@
 // components/VideoPlayer.js
 
 import React from 'react';
-
+import Iframe from 'react-iframe'
 function VideoPlayer({ videoURL, videoRef }) {
     if (videoURL === '') {
         return null;
     }
 
     return (
-        <iframe 
+        <Iframe 
                 ref={videoRef} 
-                width="560" 
-                height="315" 
-                src={videoURL + '?enablejsapi=1'} 
+                className='responsive-iframe' 
+                url={videoURL + '?enablejsapi=1'} 
                 title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-        </iframe>
+                display='block'
+                frameBorder='0'
+                width='100%'
+                height='400px'
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;fullscreen" 
+                
+                >
+        </Iframe>
     );
 }
 
